@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Todadak {
+public class TodadakApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Todadak.class, args);
+        SpringApplication.run(TodadakApplication.class, args);
     }
 }
