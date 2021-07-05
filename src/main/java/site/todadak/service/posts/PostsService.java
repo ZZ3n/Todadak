@@ -2,13 +2,16 @@ package site.todadak.service.posts;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import site.todadak.domain.posts.Posts;
 import site.todadak.domain.posts.PostsRepository;
+import site.todadak.web.dto.PostsListResponseDto;
 import site.todadak.web.dto.PostsResponseDto;
 import site.todadak.web.dto.PostsSaveRequestDto;
 import site.todadak.web.dto.PostsUpdateRequestDto;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -38,5 +41,12 @@ public class PostsService {
         );
 
         return new PostsResponseDto(post);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
