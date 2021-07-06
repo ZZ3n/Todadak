@@ -22,7 +22,7 @@ class PostsRepositoryTest {
 
     @AfterEach
     public void cleanup() {
-
+        postsRepository.deleteAll();
     }
 
     @Test
