@@ -10,8 +10,6 @@ import site.todadak.config.auth.dto.SessionUser;
 import site.todadak.service.posts.PostsService;
 import site.todadak.web.dto.PostsResponseDto;
 
-import javax.servlet.http.HttpSession;
-
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -24,7 +22,6 @@ public class IndexController {
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
-            model.addAttribute("email", user.getEmail());
         }
         return "index";
     }
