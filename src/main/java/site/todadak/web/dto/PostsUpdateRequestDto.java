@@ -3,7 +3,6 @@ package site.todadak.web.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import site.todadak.domain.posts.PostsRepository;
 
 @Getter
 @NoArgsConstructor

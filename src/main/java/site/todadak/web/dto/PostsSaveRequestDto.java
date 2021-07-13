@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import site.todadak.domain.posts.Posts;
 
-import javax.net.ssl.SSLSession;
-
 @Getter
 @NoArgsConstructor
 public class PostsSaveRequestDto {
