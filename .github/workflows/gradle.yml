@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: Java CI with Gradle
+name: 
 
 on:
   push:
@@ -25,3 +25,8 @@ jobs:
       run: chmod +x gradlew
     - name: gradle build
       run: ./gradlew build
+    - name: 슬랙 빌드 알림 보내기
+      uses: slackapi/slack-github-action@v1.15.0
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
