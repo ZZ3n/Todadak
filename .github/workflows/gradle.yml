@@ -35,7 +35,8 @@ jobs:
       run: ./gradlew build
       
     - name: zip 파일 생성
-      run: zip -q -r ./$GITHUB_SHA.zip ./scripts/*.sh ./appspec.yml ./build/libs/*.jar
+      # q = quiet, j = 경로 미포함
+      run: zip -q -j ./$GITHUB_SHA.zip ./scripts/*.sh ./appspec.yml ./build/libs/*.jar
     
     - name: AWS credentials 설정
       uses: aws-actions/configure-aws-credentials@v1
