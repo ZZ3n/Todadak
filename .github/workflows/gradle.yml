@@ -27,12 +27,15 @@ jobs:
         
     - name: gradlew 권한 수정
       run: chmod +x gradlew
-      
+
+    - name: gradle Clean
+      run: ./gradlew clean
+
     - name: gradlew 빌드 시작
       run: ./gradlew build
       
     - name: zip 파일 생성
-      run: zip -qq -r ./$GITHUB_SHA.zip .
+      run: zip -q -r ./$GITHUB_SHA.zip ./scripts/*.sh ./appspec.yml ./build/libs/*.jar
     
     - name: AWS credentials 설정
       uses: aws-actions/configure-aws-credentials@v1
@@ -43,13 +46,15 @@ jobs:
           
     - name: S3 빌드 업로드
       run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://todadak-springboot-build/$PROJECT_NAME/$GITHUB_SHA.zip
-    
+
+    - name: Code Deploy
+      run: aws deploy create-deployment --application-name Todadak --deployment-group-name todadak-production --s3-location bucket=todadak-springboot-build,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
+
     - name: 슬랙 빌드 알림
       id: slack
       uses: slackapi/slack-github-action@v1.14.0
       with:
         channel-id: C027SPVS9JA  # Slack channel id to post message
-        slack-message: 'posting from a github action!'
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
