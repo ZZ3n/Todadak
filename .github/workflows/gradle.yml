@@ -56,7 +56,7 @@ jobs:
       uses: slackapi/slack-github-action@v1.14.0
       with:
         channel-id: C027SPVS9JA  # Slack channel id to post message
-        slack-message: $GITHUB_REPOSITORY 빌드 진행 완료! Link $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID'
+        slack-message: $GITHUB_REPOSITORY 빌드 진행 완료! Link $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
