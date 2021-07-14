@@ -1,13 +1,15 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: 
+name: Todadak 빌드 및 배포
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+env:
+  PROJECT_NAME: Todadak
 
 jobs:
   build:
@@ -16,16 +18,33 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: JDK 설정 (adopt jdk 11)
       uses: actions/setup-java@v2
       with:
         java-version: '11'
         distribution: 'adopt'
+        
     - name: gradlew 권한 수정
       run: chmod +x gradlew
-    - name: gradle build
+      
+    - name: gradlew 빌드 시작
       run: ./gradlew build
-    - name: Post to a Slack channel
+      
+    - name: zip 파일 생성
+      run: zip -qq -r ./$GITHUB_SHA.zip .
+    
+    - name: AWS credentials 설정
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+          aws-access-key-id: ${{ AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ AWS_REGION }}
+          
+    - name: S3 빌드 업로드
+      run: aws s3 cp --region ${{ AWS_REGION }} ./$GITHUB_SHA.zip s3://todadak-springboot-build/$PROJECT_NAME/$GITHUB_SHA.zip
+    
+    - name: 슬랙 빌드 알림
       id: slack
       uses: slackapi/slack-github-action@v1.14.0
       with:
