@@ -25,8 +25,12 @@ jobs:
       run: chmod +x gradlew
     - name: gradle build
       run: ./gradlew build
-    - name: 슬랙 빌드 알림 보내기
-      uses: slackapi/slack-github-action@v1.15.0
+    - name: Post to a Slack channel
+      id: slack
+      uses: slackapi/slack-github-action@v1.14.0
+      with:
+        channel-id: C027SPVS9JA  # Slack channel id to post message
+        slack-message: 'posting from a github action!'
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
