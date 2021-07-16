@@ -1,0 +1,135 @@
+@import "src/assets/sass/components/_input.sass"
+@import "src/assets/sass/components/_button.sass"
+
+.todo.wide.super-wide
+    +size(97.8%)
+
+.todo.super-wide
+    +size(86%)
+
+.todo.wide
+    +size(77.8%)
+
+.todo
+    +size(66%, 100%)
+    +padding(16px)
+    +box-sizing(border-box)
+    overflow-y: auto
+
+    // input zone
+    .todo-input
+        +border(1px solid $border-color-base, bottom)
+        overflow: hidden
+
+        .input-wrap
+            +size(90%)
+            float: left
+
+            input[type="text"]
+                +input(white-light-fill)
+                +size(100%, 50px)
+                font-size: 16px
+
+        .btn-wrap
+            +margin(left 20px)
+            float: right
+
+        button
+            +btn()
+            +size(100px, 50px)
+            font-weight: bold
+            font-size: 16px
+
+    // list zone
+    .todo-list
+        +margin(top 20px)
+
+        h2
+            +margin(top 30px)
+
+        li
+            +padding(8px 12px)
+            +background(null, null, null, $white)
+            +border(1px solid $border-color-base, bottom)
+            font-size: 20px
+            overflow: hidden
+            cursor: pointer
+
+            svg
+                +padding(5px 0)
+                float: left
+                color: green
+
+            p
+                +padding(5px 0)
+                display: block
+                float: left
+
+            .todo-text
+                +margin(left 5px)
+
+            .todo-label
+                +margin(top 5px left 10px)
+                +padding(5px 7px)
+                +border-radius(5px)
+                font-size: 14px
+
+            .todo-repeat
+                +padding(top 12px left 10px)
+                font-size: 12px
+                color: $grey-900
+
+            .btn-wrap
+                float: right
+
+                button
+                    +btn()
+                    +size(18px, 30px)
+                    font-weight: bold
+                    font-size: 16px
+
+            &.complete
+                .todo-text
+                    text-decoration: line-through
+                    color: $done
+
+                .todo-label
+                    color: $done !important
+                    background-color: $white !important
+
+            &.active
+                background-color: $background-color-list
+
+    //clearAll zone
+    .todo-clear
+        .btn-wrap
+            +size(300px)
+            +margin(20px auto 0 auto)
+
+            button
+                +btn()
+                +size(300px, 50px)
+                +background(null, null, null, $grey-900)
+                color: $white
+                font-size: 16px
+
+    // context menu
+    #todo-context-menu
+        +size(200px)
+        +background(null, null, null, $white)
+        display: none
+        position: absolute
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1), -4px -4px 5px rgba(0, 0, 0, 0.1)
+        z-index: 20
+
+        li
+            +padding(8px 0 8px 12px)
+
+            svg
+                +size(16px, 16px)
+
+            &:hover
+                +background(null, null, null, #F4F4F4)
+
+        &.context-active
+            display: block

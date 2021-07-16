@@ -1,0 +1,22 @@
+html, body, #app
+    height: 100%
+
+main
+    height: calc(100% - 50px)
+
+    .left-aside
+        float: left
+
+    .todo
+        float: left
+
+    .board
+        float: left
+
+    .right-aside
+        float: right
+
+    &::after
+        display: block
+        clear: both
+        content: ""

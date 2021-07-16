@@ -1,0 +1,55 @@
+@import "src/assets/sass/components/_input.sass"
+@import "src/assets/sass/components/_button.sass"
+
+.find-login.wide.super-wide
+    +size(97.8%)
+
+.find-login.super-wide
+    +size(86%)
+
+.find-login.wide
+    +size(77.8%)
+
+.find-login
+    +size(66%, 100%)
+    float: left
+
+    .find-login-wrap
+        +size(784px)
+        +margin(200px auto 0 auto)
+        overflow: hidden
+
+        .find-id-wrap
+            +size(300px)
+            +padding(20px)
+            +margin(right 100px)
+            +border(1px solid $border-color-base)
+            float: left
+
+        .find-password-wrap
+            +size(300px)
+            +padding(20px)
+            +border(1px solid $border-color-base)
+            float: left
+
+        h2
+            +margin(bottom 20px)
+            font-size: 24px
+
+        .input-wrap
+            +margin(bottom 10px)
+
+        input[type="text"],
+        input[type="password"]
+            +input(null, 1px solid $border-color-base, 25px)
+            +background(null, null, null, $background-color-input)
+            +size(300px, 50px)
+            font-size: 14px
+            color: $grey-700
+
+        input::placeholder
+            color: $grey-900
+
+        button
+            +btn(page-fill)
+            +size(300px, 50px)

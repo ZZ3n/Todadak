@@ -1,0 +1,58 @@
+@import "src/assets/sass/components/_input.sass"
+@import "src/assets/sass/components/_button.sass"
+
+.login.wide.super-wide
+    +size(97.8%)
+
+.login.super-wide
+    +size(86%)
+
+.login.wide
+    +size(77.8%)
+
+.login
+    +size(66%, 100%)
+    float: left
+
+    .login-wrap
+        +size(300px)
+        +margin(200px auto 0 auto)
+
+        h2
+            +margin(bottom 20px)
+            font-size: 26px
+
+        .input-wrap
+            +margin(bottom 10px)
+
+            label
+                +size(65px)
+                +margin(right 10px)
+                display: inline-block
+
+            input[type="text"],
+            input[type="password"]
+                +input(null, 1px solid $border-color-base, 25px)
+                +background(null, null, null, $background-color-input)
+                +size(300px, 50px)
+                font-size: 14px
+                color: $grey-700
+
+            input::placeholder
+                color: $grey-900
+
+        button
+            +btn(page-fill)
+            +size(300px, 50px)
+
+        .login-menu
+            +margin(top 10px)
+            text-align: right
+
+            a
+                color: $grey-700
+                font-size: 14px
+
+            a:first-child
+                +margin(right 16px)
+                font-weight: bold

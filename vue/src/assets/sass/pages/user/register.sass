@@ -1,0 +1,55 @@
+@import "src/assets/sass/components/_input.sass"
+@import "src/assets/sass/components/_button.sass"
+
+.register.wide.super-wide
+    +size(97.8%)
+
+.register.super-wide
+    +size(86%)
+
+.register.wide
+    +size(77.8%)
+
+.register
+    +size(66%, 100%)
+    float: left
+
+    .register-wrap
+        +size(410px)
+        +margin(200px auto 0 auto)
+
+        h2
+            font-size: 24px
+
+        .input-wrap
+            +margin(top 10px)
+
+            label
+                +size(100px)
+                +margin(right 10px)
+                display: inline-block
+
+            input
+                +input(null, 1px solid $border-color-base, 25px)
+                +background(null, null, null, $background-color-input)
+                +size(300px, 50px)
+                font-size: 14px
+                color: $grey-700
+
+        .btn-zone
+            +margin(top 20px)
+            overflow: hidden
+
+            button
+                +btn(page-fill)
+                +size(200px, 50px)
+                +margin(right 10px)
+                float: left
+
+            a
+                +btn()
+                +size(200px, 50px)
+                +background(null, null, null, $grey-900)
+                float: left
+                line-height: 50px
+                color: $white

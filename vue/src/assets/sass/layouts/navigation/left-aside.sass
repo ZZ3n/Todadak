@@ -1,0 +1,48 @@
+.left-aside
+    +size(14%, 100%)
+    +background(null, null, null, $background-color-aside)
+    position: relative
+
+    .back
+        +padding(top 10px left 6px bottom 10px)
+        display: block
+
+        .chevron
+            +size(24px, 24px)
+            +background('/todadak/images/global/chevron_left.svg', no-repeat, center center)
+            display: block
+
+    li
+        +padding(10px)
+        overflow: hidden
+
+        .icon
+            +size(20px)
+            float: left
+            display: flex
+            justify-content: center
+
+        a
+            +padding(left 20px)
+            float: left
+
+    .login-menu
+        position: absolute
+        bottom: 20px
+        right: 20px
+
+        a
+            font-size: 18px
+
+// event css
+.left-aside.hide
+    width: 2.2%
+
+    .chevron
+        +background("/todadak/images/global/chevron_right.svg")
+
+    li a
+        display: none
+
+    .login-menu
+        display: none

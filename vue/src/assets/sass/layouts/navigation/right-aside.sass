@@ -1,0 +1,96 @@
+.right-aside
+    +size(20%, 100%)
+    +padding(0 10px)
+    +background(null, null, null, $background-color-aside-light)
+    +box-sizing(border-box)
+    position: relative
+
+    .input-wrap
+        +margin(top 10px)
+        +padding(10px)
+        +background(null, null, null, $white)
+        +border(1px solid $border-color-base)
+        position: relative
+        vertical-align: middle
+
+        .todo-text5
+            font-size: 16px
+
+        svg
+            +margin(right 10px)
+            float: left
+
+        .label,
+        .repeat
+            +size(90%)
+            float: left
+            cursor: pointer
+
+            p
+                +margin(left 10px)
+                display: inline-block
+
+                &:first-child
+                    +margin(left 0)
+
+        .label p
+            +padding(5px 7px)
+            +border-radius(5px)
+            font-size: 14px
+
+        .label-select,
+        .repeat-select
+            +size(300px)
+            +padding(0 12px)
+            +border-radius(5px)
+            +background(null, null, null, $white)
+            box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1), -4px -4px 5px rgba(0, 0, 0, 0.1)
+            display: none
+            position: absolute
+            top: 45px
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 10
+
+            li
+                +padding(8px 0)
+                cursor: pointer
+
+            &.active
+                display: block
+
+        .repeat-select
+            float: left
+            display: none
+
+            &.active
+                display: block
+
+        input
+            +border(0)
+            float: left
+
+        &::after
+            display: block
+            clear: both
+            content: ""
+    .btn-wrap
+        +size(342px)
+        position: absolute
+        bottom: 20px
+        left: 20px
+        overflow: hidden
+
+        .hide-button
+            float: left
+
+        .delete-button
+            float: right
+
+            svg
+                +size(24px, 24px)
+
+        .chevron
+            +size(24px, 24px)
+            +background('/todadak/images/global/chevron_right.svg', no-repeat, center center)
+            display: block

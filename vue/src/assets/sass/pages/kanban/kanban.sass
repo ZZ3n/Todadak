@@ -1,0 +1,78 @@
+.board.wide.super-wide
+    +size(97.8%)
+
+.board.super-wide
+    +size(86%)
+
+.board.wide
+    +size(77.8%)
+
+.board
+    +size(66%, 100%)
+    +padding(16px)
+    +box-sizing(border-box)
+    overflow-y: auto
+
+    h2
+        line-height: 1.5
+
+    .board-common
+        +size(24%)
+        +margin(right 21px)
+        float: left
+        min-height: 800px
+        border-radius: 5px
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px rgba(0, 0, 0, 0.1)
+
+        h2
+            +size(200px)
+            +margin(0 auto)
+            +background(null, null, null, $white)
+            +border(1px solid $border-color-base)
+            border-radius: 10px
+            font-size: 22px
+            text-align: center
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1), -1px -1px 5px rgba(0, 0, 0, 0.1)
+            transform: translateY(-10px)
+
+        &:last-child
+            +margin(right 0)
+
+        li
+            +margin(10px)
+            +padding(8px)
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1), -1px -1px 5px rgba(0, 0, 0, 0.1)
+
+            .todo-title-wrap
+                overflow: hidden
+
+                .todo-title
+                    float: left
+                    font-weight: bold
+                    font-size: 20px
+
+                .star
+                    float: right
+
+            .todo-information
+                +margin(top 30px)
+
+                .todo-label
+                    +margin(left 10px)
+                    +padding(5px 7px)
+                    border-radius: 5px
+
+                    &:first-child
+                        +margin(left 0)
+
+            .todo-date-wrap
+                +margin(top 15px)
+                overflow: hidden
+
+                .todo-repeat
+                    float: left
+                    color: $blue
+
+                .todo-date
+                    float: right
+                    color: $grey-900
