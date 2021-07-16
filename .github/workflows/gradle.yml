@@ -10,6 +10,7 @@ on:
     branches: [ main ]
 env:
   PROJECT_NAME: Todadak
+  VUE_DIRECTORY : ./vue
 
 jobs:
   build:
@@ -23,17 +24,14 @@ jobs:
       uses: actions/setup-node@v2.2.0
       with:
         node-version: 12.x
-    - name: vue로 이동
-      run: cd vue
         
     - name: npm ci 설치
       run: npm ci
+      working-directory: ${{ env.VUE_DIRECTORY }}
       
     - name: npm 빌드
       run: npm run build --if-present 
-    
-    - name: 프로젝트 루트로 이동
-      run: cd ..
+      working-directory: ${{ env.VUE_DIRECTORY }}
     
     - name: JDK 설정 (adopt jdk 11)
       uses: actions/setup-java@v2
