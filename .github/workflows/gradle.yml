@@ -19,6 +19,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: node 설치
+      uses: actions/setup-node@v2.2.0
+      with:
+        node-version: 12.x
+        
+    - name: npm ci 설치
+      run: npm ci
+      
+    - name: npm 빌드
+      run: cd vue && npm run build --if-present && cd ..
+    
     - name: JDK 설정 (adopt jdk 11)
       uses: actions/setup-java@v2
       with:
